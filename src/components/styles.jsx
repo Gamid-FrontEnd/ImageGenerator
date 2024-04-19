@@ -58,12 +58,39 @@ export const ImageOutputStyles = styled.div`
 `;
 
 export const HeaderStyles = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 15px;
+  height: 40px;
 
-  color: #f2f597;
   font-size: 20px;
 `;
 
 export const Logo = styled.img`
   width: 40px;
+`;
+
+export const NavBar = styled.nav`
+  li {
+    display: inline;
+  }
+
+  li a {
+    color: #f2f597;
+    text-decoration: none;
+    padding: 14px 16px;
+    margin-right: 5px;
+
+    transition: all 0.5s;
+  }
+
+  li a:hover {
+    color: #0a1d56;
+    background-color: #37b5b6;
+  }
+`;
+
+export const AboutAIStyles = styled.div`
+  color: #fff;
 `;

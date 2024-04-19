@@ -1,17 +1,25 @@
 import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import HeaderStyles from "./components/Header";
-import { ImageGenerator } from "./components/ImageGenerator";
-import { ImageOutput } from "./components/ImageOutput";
-import { AppStyle, GeneratorStyles } from "./components/styles";
+import { AppStyle } from "./components/styles";
+import Generator from "./components/Generator";
+import AboutAI from "./components/AboutAI";
 
 function App() {
   return (
     <AppStyle>
-      <HeaderStyles />
-      <GeneratorStyles>
-        <ImageGenerator />
-        <ImageOutput />
-      </GeneratorStyles>
+      <Router>
+        <HeaderStyles />
+        <Routes>
+          <Route path="/" element={<Generator />} />
+          <Route path="/about" element={<AboutAI />} />
+        </Routes>
+      </Router>
     </AppStyle>
   );
 }
