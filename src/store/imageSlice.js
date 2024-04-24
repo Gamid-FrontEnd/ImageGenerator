@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   loading: false,
   image: null,
+  noImage: true,
 };
 
 const imageSlice = createSlice({
@@ -15,9 +16,12 @@ const imageSlice = createSlice({
     setImage: (state, action) => {
       state.image = action.payload;
     },
+    setNoImage: (state, action) => {
+      state.noImage = action.payload;
+    },
   },
 });
 
-export const { setImage, setLoading } = imageSlice.actions;
+export const { setImage, setLoading, setNoImage } = imageSlice.actions;
 
 export default imageSlice.reducer;

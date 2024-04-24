@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageGenerator } from "./ImageGenerator";
 import { ImageOutput } from "./ImageOutput";
-import { GeneratorStyles } from "./styles";
+import { GeneratorStyles } from "../styles";
 
 const Generator = () => {
   return (

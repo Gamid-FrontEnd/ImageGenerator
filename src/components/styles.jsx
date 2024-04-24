@@ -1,11 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-// MAIN COLORS
-//0A1D56
-//492E87
-//37B5B6
-//F2F597
-
 // ANIMATIONS
 
 const LogoImageGeneratorAnimation = keyframes`
@@ -153,6 +147,92 @@ export const ImageOutputStyles = styled.div`
   justify-content: center;
 `;
 
+export const GenerationResultStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  button {
+    position: relative;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+
+  button:hover {
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+
+  button:hover::before {
+    -webkit-animation: ${sh02} 0.5s 0s linear;
+    -moz-animation: ${sh02} 0.5s 0s linear;
+    animation: ${sh02} 0.5s 0s linear;
+  }
+
+  button::before {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+
+  button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
+`;
+
+export const NoImageOutputStyles = styled.div`
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    border-width: 10px;
+    border-style: solid;
+    border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+
+    color: white;
+
+    p {
+      font-size: 50px;
+      font-family: "Dosis", sans-serif;
+      font-weight: 500;
+    }
+  }
+`;
+
 export const HeaderStyles = styled.div`
   display: flex;
   justify-content: space-between;
@@ -173,7 +253,9 @@ export const NavBar = styled.nav`
   }
 
   li a {
-    color: #f2f597;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
     text-decoration: none;
     padding: 14px 16px;
     margin-right: 5px;
@@ -182,8 +264,17 @@ export const NavBar = styled.nav`
   }
 
   li a:hover {
-    color: #0a1d56;
-    background-color: #37b5b6;
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+
+  li:hover::before {
+    -webkit-animation: ${sh02} 0.5s 0s linear;
+    -moz-animation: ${sh02} 0.5s 0s linear;
+    animation: ${sh02} 0.5s 0s linear;
   }
 `;
 
@@ -204,6 +295,14 @@ export const AboutAIStyles = styled.div`
     top: 50%;
     transform: translateY(-80%);
     left: 450px;
+  }
+
+  .info_3 {
+    position: absolute;
+    display: none;
+    top: 50%;
+    transform: translateY(-80%);
+    right: 100px;
   }
 
   .visible {
@@ -229,6 +328,13 @@ export const WhatIsAIStyles = styled.div`
 export const HowItWorksStyles = styled.div`
   width: 500px;
   font-size: 20px;
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+`;
+
+export const OtherProjectsStyles = styled.div`
+  width: 500px;
+  font-size: 50px;
   font-family: "Dosis", sans-serif;
   font-weight: 500;
 `;

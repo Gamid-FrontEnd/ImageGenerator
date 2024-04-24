@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setLoading, setImage } from "../store/imageSlice";
-import logo from "../image/logo_transperent.PNG";
+import { setLoading, setImage, setNoImage } from "../../store/imageSlice";
+import logo from "../../image/logo_transperent.PNG";
 
 import {
   ImageGeneratorStyles,
   LogoImageGeneratorStyles,
   LogoImageInputStyles,
-} from "./styles";
+} from "../styles";
 
-const { token } = require("../config.json");
+const { token } = require("../../config.json");
 
 export const ImageGenerator = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ export const ImageGenerator = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(setLoading(true));
+    dispatch(setNoImage(false));
 
     const randomSeed = generateRandomSeed();
 

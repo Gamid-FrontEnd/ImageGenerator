@@ -4,6 +4,7 @@ import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 import { AboutAIStyles, Menu } from "../styles";
 import WhatIsAI from "./WhatIsAI";
 import HowItWorks from "./HowItWorks";
+import OtherProjects from "./OtherProjects";
 
 function Model(props) {
   const { scene } = useGLTF("/robot_004.glb");
@@ -15,6 +16,7 @@ const AboutAI = () => {
   const [xPositionCamera, setXPositionCamera] = useState("0");
   const [visibilityWhat, setVisibilityWhat] = useState("invisible");
   const [visibilityHow, setVisibilityHow] = useState("invisible");
+  const [visibilityProjects, setVisibilityProjects] = useState("invisible");
 
   return (
     <AboutAIStyles>
@@ -51,11 +53,16 @@ const AboutAI = () => {
         <HowItWorks />
       </div>
 
+      <div className={"info_3 " + visibilityProjects}>
+        <OtherProjects />
+      </div>
+
       <Menu>
         <button
           onClick={() => {
             setXPosition(1);
             setXPositionCamera("100px");
+            setVisibilityProjects("invisible");
             setVisibilityWhat("visible");
             setVisibilityHow("invisible");
           }}
@@ -66,11 +73,24 @@ const AboutAI = () => {
           onClick={() => {
             setXPosition(-1);
             setXPositionCamera("-500px");
+            setVisibilityProjects("invisible");
             setVisibilityWhat("invisible");
             setVisibilityHow("visible");
           }}
         >
           How does image generation work?
+        </button>
+
+        <button
+          onClick={() => {
+            setXPosition(1);
+            setXPositionCamera("100px");
+            setVisibilityWhat("invisible");
+            setVisibilityHow("invisible");
+            setVisibilityProjects("visible");
+          }}
+        >
+          Other projects
         </button>
       </Menu>
     </AboutAIStyles>

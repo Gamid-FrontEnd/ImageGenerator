@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeaderStyles from "./components/Header";
 import { AppStyle } from "./components/styles";
-import Generator from "./components/Generator";
+import Generator from "./components/imageGenerator/Generator";
 import AboutAI from "./components/aboutAI/AboutAI";
 
 function App() {
